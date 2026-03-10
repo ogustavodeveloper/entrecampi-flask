@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EntreCampi{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        {% block header %}
+        <h1>EntreCampi</h1>
+      
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <p>&copy; 2026 EntreCampi. Todos os direitos reservados.</p>
+        {% endblock %}
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-
+ 
 load_dotenv()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project.db"
