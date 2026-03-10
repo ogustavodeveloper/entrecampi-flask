@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Bem-vindo ao EntreCampi!</h1>
+        <div class="universidades-list">
+            <div class="universidade-item">
+                <h2>Universidade A</h2>
+                <p>Descrição breve da Universidade A.</p>
+                <a href="/universidade-a">Saiba mais</a>
+            </div>
+            <div class="universidade-item">
+                <h2>Universidade B</h2>
+                <p>Descrição breve da Universidade B.</p>
+                <a href="/universidade-b">Saiba mais</a>
+            </div>
+            <div class="universidade-item">
+                <h2>Universidade C</h2>
+                <p>Descrição breve da Universidade C.</p>
+                <a href="/universidade-c">Saiba mais</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

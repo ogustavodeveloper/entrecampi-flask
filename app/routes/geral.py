@@ -30,3 +30,6 @@ def cadastroEstudante():
   
     return render_template("cadastro.html")
     
+@geral_bp.route("/")
+def index():
+    return render_template("index.html")
