@@ -25,12 +25,19 @@ class Universidade(db.Model):
     sigla = db.Column(db.String())
     descricao = db.Column(db.Text)
     link_oficial = db.Column(db.String())
+    localizacao = db.Column(db.String())
+    repositorio = db.Column(db.String())
+    fundacao = db.Column(db.String())
 
-    def __init__(self, id, nome, sigla, descricao, link_oficial):
+
+    def __init__(self, id, nome, sigla, descricao, link_oficial, localizacao, repositorio, fundacao):
         self.nome = nome
         self.sigla = sigla 
         self.descricao = descricao 
         self.link_oficial = link_oficial
+        self.localizacao = localizacao
+        self.repositorio = repositorio
+        self.fundacao = fundacao
 
 class Vestibular(db.Model):
     nome = db.Column(db.String(), primary_key=True)

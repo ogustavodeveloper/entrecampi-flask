@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+        {% block content %}
+        <div class="container">
+            <h1>Universidade</h1>
+            <p id="description-universidade">{{universidade.nome}}</p>
+
+            <div id="details-universidade">
+                <h2>Informações da Universidade</h2>
+                <p>Nome: {{universidade.nome}}</p>
+                <p>Localização: {{universidade.localizacao}}</p>
+                <p>Fundação: {{universidade.fundacao}}</p>
+            </div>
+
+            <div id="works-universidade">
+                <h2>Trabalhos produzidos</h2>
+                <ul>
+                    {% for trabalho in trabalhos %}
+                        <a href="{{trabalho.link}}" target="_blank"><li>{{trabalho.titulo}}</li></a>
+                    {% endfor %}
+                </ul>
+                <p>Link do repositório: <a href="{{universidade.repositorio}}">Repositório da Universidade</a></p>
+            </div>
+        </div>
+{% endblock %}
+ 
