@@ -32,5 +32,6 @@ def cadastroEstudante():
     
 @geral_bp.route("/")
 def index():
-    return render_template("index.html")
+    universidades = Universidade.query.all()
+    return render_template("index.html", universidades=universidades)
 

@@ -1,26 +1,41 @@
 {% extends 'base.html' %}
 
-        {% block content %}
-        <div class="container">
-            <h1>Universidade</h1>
-            <p id="description-universidade">{{universidade.nome}}</p>
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="flex items-center mb-4">
+        {% if universidade.logo %}
+        <img src="{{ universidade.logo }}" alt="Logo {{ universidade.nome }}" class="w-12 mr-4 rounded">
+        {% endif %}
+        <h1 class="text-4xl font-bold">{{ universidade.nome }}</h1>
+    </div>
+    <p class="text-lg text-gray-700 mb-8">{{universidade.nome}}</p>
 
-            <div id="details-universidade">
-                <h2>Informações da Universidade</h2>
-                <p>Nome: {{universidade.nome}}</p>
-                <p>Localização: {{universidade.localizacao}}</p>
-                <p>Fundação: {{universidade.fundacao}}</p>
-            </div>
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Informações da Universidade</h2>
+        <p class="mb-2"><strong>Nome:</strong> {{universidade.nome}}</p>
+        <p class="mb-2"><strong>Localização:</strong> {{universidade.localizacao}}</p>
+        <p class="mb-2"><strong>Fundação:</strong> {{universidade.fundacao}}</p>
+        <p class="mb-2"><strong>Descrição:</strong> {{universidade.descricao}}</p>
+        <p class="mb-2"><strong>Link Oficial:</strong> <a href="{{universidade.link_oficial}}" class="text-blue-600 hover:text-blue-800">{{universidade.link_oficial}}</a></p>
 
-            <div id="works-universidade">
-                <h2>Trabalhos produzidos</h2>
-                <ul>
-                    {% for trabalho in trabalhos %}
-                        <a href="{{trabalho.link}}" target="_blank"><li>{{trabalho.titulo}}</li></a>
-                    {% endfor %}
-                </ul>
-                <p>Link do repositório: <a href="{{universidade.repositorio}}">Repositório da Universidade</a></p>
-            </div>
-        </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Trabalhos produzidos</h2>
+        <ul class="list-disc list-inside mb-4">
+            {% for trabalho in trabalhos %}
+                <li><a href="{{trabalho.link}}" target="_blank" class="text-blue-600 hover:text-blue-800">{{trabalho.titulo}}</a></li>
+            {% endfor %}
+        </ul>
+        <p><strong>Link do repositório:</strong> <a href="{{universidade.repositorio}}" class="text-blue-600 hover:text-blue-800">Repositório da Universidade</a></p>
+    </div>
+
+    {% if universidade.foto %}
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-4">Foto da Faculdade</h2>
+        <img src="{{ universidade.foto }}" alt="Foto da {{ universidade.nome }}" class="w-full rounded">
+    </div>
+    {% endif %}
+</div>
 {% endblock %}
  

@@ -1,29 +1,20 @@
 {% extends 'base.html' %}
 
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-{% endblock %}
-
 {% block content %}
-    <div class="container">
-        <h1>Bem-vindo ao EntreCampi!</h1>
-        <div class="universidades-list">
-            <div class="universidade-item">
-                <h2>Universidade A</h2>
-                <p>Descrição breve da Universidade A.</p>
-                <a href="/universidade-a">Saiba mais</a>
-            </div>
-            <div class="universidade-item">
-                <h2>Universidade B</h2>
-                <p>Descrição breve da Universidade B.</p>
-                <a href="/universidade-b">Saiba mais</a>
-            </div>
-            <div class="universidade-item">
-                <h2>Universidade C</h2>
-                <p>Descrição breve da Universidade C.</p>
-                <a href="/universidade-c">Saiba mais</a>
-            </div>
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center mb-8">Bem-vindo ao EntreCampi!</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for uni in universidades %}
+        <div class="bg-white shadow-md rounded-lg p-6 flex flex-col gap-4">
+            {% if uni.logo %}
+            <img src="{{ uni.logo }}" alt="Logo {{ uni.nome }}" class="w-12 mx-auto rounded">
+            {% endif %}
+            <h2 class="text-2xl font-semibold">{{ uni.nome }}</h2>
+            <p class="text-gray-600">{{ uni.descricao or 'Descrição não disponível' }}</p>
+            <a href="/universidade/{{ uni.sigla }}" class="bg-black text-white text-center py-2 px-4 rounded hover:bg-gray-800 transition">Saiba mais</a>
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
 

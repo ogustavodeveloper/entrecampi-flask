@@ -21,16 +21,20 @@ class Estudante(db.Model):
         self.senha = senha 
 
 class Universidade(db.Model):
-    nome = db.Column(db.String(), primary_key=True)
+    id = db.Column(db.String(), primary_key=True)
+    nome = db.Column(db.String())
     sigla = db.Column(db.String())
     descricao = db.Column(db.Text)
     link_oficial = db.Column(db.String())
     localizacao = db.Column(db.String())
     repositorio = db.Column(db.String())
     fundacao = db.Column(db.String())
+    logo = db.Column(db.String())  # Link para a logo
+    foto = db.Column(db.String())  # Link para a foto da faculdade
 
 
-    def __init__(self, id, nome, sigla, descricao, link_oficial, localizacao, repositorio, fundacao):
+    def __init__(self, id, nome, sigla, descricao, link_oficial, localizacao, repositorio, fundacao, logo, foto):
+        self.id = id
         self.nome = nome
         self.sigla = sigla 
         self.descricao = descricao 
@@ -38,6 +42,8 @@ class Universidade(db.Model):
         self.localizacao = localizacao
         self.repositorio = repositorio
         self.fundacao = fundacao
+        self.logo = logo
+        self.foto = foto
 
 class Vestibular(db.Model):
     nome = db.Column(db.String(), primary_key=True)

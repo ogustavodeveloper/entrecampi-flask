@@ -9,7 +9,7 @@ app = Flask(__name__)
  
 load_dotenv()
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///project-4.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '123'
 app.config['SESSION_PERMANENT'] = True  # Sessão permanente

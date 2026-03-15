@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}EntreCampi{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
     
     {% block head %}{% endblock %}
 </head>
-<body>
-    <header>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white py-4">
         {% block header %}
-        <h1>EntreCampi</h1>
-      
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">EntreCampi</h1>
+        </div>
         {% endblock %}
     </header>
 
-    <main>
+    <main class="flex-grow">
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
+    <footer class="bg-gray-800 text-white py-4">
         {% block footer %}
-        <p>&copy; 2026 EntreCampi. Todos os direitos reservados.</p>
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2026 EntreCampi. Todos os direitos reservados.</p>
+        </div>
         {% endblock %}
     </footer>
 

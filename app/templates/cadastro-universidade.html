@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-center">
+        <div class="w-full max-w-2xl">
+            <div class="bg-white shadow-lg rounded-lg">
+                <div class="bg-blue-600 text-white px-6 py-4 rounded-t-lg">
+                    <h2 class="text-2xl font-bold mb-0">Cadastro de Universidade</h2>
+                </div>
+                <div class="p-6">
+                    <form method="POST" action="/cadastro-universidade" class="space-y-4">
+                        <div>
+                            <label for="nome" class="block text-sm font-medium text-gray-700">Nome da Universidade</label>
+                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="nome" name="nome" placeholder="Digite o nome completo da universidade" required>
+                        </div>
+                        <div>
+                            <label for="sigla" class="block text-sm font-medium text-gray-700">Sigla</label>
+                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="sigla" name="sigla" placeholder="Ex: USP, UFRJ" required>
+                        </div>
+                        <div>
+                            <label for="descricao" class="block text-sm font-medium text-gray-700">Descrição</label>
+                            <textarea class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="descricao" name="descricao" rows="3" placeholder="Descreva brevemente a universidade"></textarea>
+                        </div>
+                        <div>
+                            <label for="link_oficial" class="block text-sm font-medium text-gray-700">Link Oficial</label>
+                            <input type="url" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="link_oficial" name="link_oficial" placeholder="https://www.exemplo.com">
+                        </div>
+                        <div>
+                            <label for="localizacao" class="block text-sm font-medium text-gray-700">Localização</label>
+                            <input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="localizacao" name="localizacao" placeholder="Cidade, Estado, País" required>
+                        </div>
+                        <div>
+                            <label for="repositorio" class="block text-sm font-medium text-gray-700">Repositório</label>
+                            <input type="url" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="repositorio" name="repositorio" placeholder="Link para repositório (GitHub, etc.)">
+                        </div>
+                        <div>
+                            <label for="fundacao" class="block text-sm font-medium text-gray-700">Ano de Fundação</label>
+                            <input type="number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="fundacao" name="fundacao" placeholder="Ex: 1934" min="1000" max="2026">
+                        </div>
+                        <div>
+                            <label for="logo" class="block text-sm font-medium text-gray-700">Link da Logo</label>
+                            <input type="url" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="logo" name="logo" placeholder="https://exemplo.com/logo.png">
+                        </div>
+                        <div>
+                            <label for="foto" class="block text-sm font-medium text-gray-700">Link da Foto da Faculdade</label>
+                            <input type="url" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" id="foto" name="foto" placeholder="https://exemplo.com/foto.jpg">
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition text-lg font-semibold">Cadastrar Universidade</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
