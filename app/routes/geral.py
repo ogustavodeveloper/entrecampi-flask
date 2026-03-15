@@ -34,9 +34,3 @@ def cadastroEstudante():
 def index():
     return render_template("index.html")
 
-@geral_bp.route("/universidade/<id>")
-def universidade(id):
-    if universidade:
-        return render_template("universidade.html")
-    else:
-        return "Universidade não encontrada", 404

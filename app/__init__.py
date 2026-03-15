@@ -20,5 +20,6 @@ db = SQLAlchemy(app)
 CORS(app)
 
 # Importe e registre as blueprints (rotas) da sua aplicação
-from app.routes import geral_bp
+from app.routes import geral_bp, universidade_bp
 app.register_blueprint(geral_bp)
+app.register_blueprint(universidade_bp)
