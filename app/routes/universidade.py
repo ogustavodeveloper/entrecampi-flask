@@ -1,14 +1,15 @@
 from app.routes import universidade_bp
 from app import db, app
 from flask import render_template, jsonify, request, redirect
-from app.models import Universidade, Estudante
+from app.models import Universidade, Estudante, Vestibular
 import uuid
 
 @universidade_bp.route("/universidade/<sigla>")
 def universidade(sigla):
     universidade = Universidade.query.filter_by(sigla=sigla).first()
     if universidade:
-        return render_template("universidade.html", universidade=universidade)
+        vestibulares = Vestibular.query.filter_by(universidade=sigla).all()
+        return render_template("universidade.html", universidade=universidade, vestibulares=vestibulares)
     else:
         return "Universidade não encontrada", 404
     
@@ -28,6 +29,16 @@ def cadastrarUniversidade():
         nova_universidade = Universidade(id=universidade_id, nome=nome, sigla=sigla, descricao=descricao, link_oficial=link_oficial, localizacao=localizacao, repositorio=repositorio, fundacao=fundacao, logo=logo, foto=foto)
         db.session.add(nova_universidade)
         db.session.commit()
+        
+        # Cadastrar vestibular se preenchido
+        vestibular_nome = request.form.get("vestibular_nome")
+        if vestibular_nome:
+            vestibular_datas = request.form.get("vestibular_datas")
+            vestibular_link = request.form.get("vestibular_link")
+            vestibular_descricao = request.form.get("vestibular_descricao")
+            vestibular = Vestibular(nome=vestibular_nome, universidade=sigla, datas=vestibular_datas, link=vestibular_link, descricao=vestibular_descricao)
+            db.session.add(vestibular)
+            db.session.commit()
         
         return redirect(f"/universidade/{sigla}")
     return render_template("cadastro-universidade.html")
